@@ -12,3 +12,5 @@ Run `grunt buildcontrol:heroku` to deploy to heroku
 ## Testing
 
 Running `grunt test` will run the unit tests with karma.
+
+App can be viewed here: http://nyt-books.herokuapp.com/ 
