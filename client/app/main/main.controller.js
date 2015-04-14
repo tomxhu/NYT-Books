@@ -1,15 +1,14 @@
 'use strict';
 
 angular.module('nytBooksApp')
-  .controller('MainCtrl', function ($scope, $http) {
+.controller('MainCtrl', function ($scope, $http, BestSellers) {
     
     // Settings for API
     $scope.query = {
-      category : null,
-      date: null,
+      category : "hardcover-fiction",
+      year: "2015",
+      month: "01",
     }
-
-    $scope.awesomeThings = [];
 
     // Available Categories
     $scope.categories = [];
@@ -17,62 +16,26 @@ angular.module('nytBooksApp')
     // List of Best Sellers
     $scope.books = [];
 
-    // $http.get('/api/things').success(function(awesomeThings) {
-    //   $scope.awesomeThings = awesomeThings;
-    // });
 
-    // $scope.addThing = function() {
-    //   if($scope.newThing === '') {
-    //     return;
-    //   }
-    //   $http.post('/api/things', { name: $scope.newThing });
-    //   $scope.newThing = '';
-    // };
+    $scope.loadBooks = function(query){
 
-    // $scope.deleteThing = function(thing) {
-    //   $http.delete('/api/things/' + thing._id);
-    // };
+      query.date = query.year + '/' + query.month + '/01';
 
-    // Get list of available categories
-    $http.get('/api/nyt/categories')
-      .success(function(data, status, headers, config) {
-          //what do I do here?
-          $scope.categories = data.results;
+      BestSellers.get(query, function(resp){
+        $scope.books = resp;
+      }, function(resp){
+        $scope.error = resp;
       })
-      .error(function(data, status, headers, config) {
-          console.log(status);
-          $scope.error = status;
-      });
+      
+    }
 
-    // Get list of books
-    $http.get('/api/nyt/')
-      .success(function(data, status, headers, config) {
+    BestSellers.categories(function(resp){
+      $scope.categories = resp;
+    },function(resp){
+      $scope.error = resp;
+    })
 
-        $scope.books = [];
-          
-          // Format data
-          angular.forEach(data.results, function(book){
+    $scope.loadBooks($scope.query);
 
-              // If our book as details
-              if (book.book_details && book.book_details[0]){
-                
-                // Extract details
-                var details = book.book_details[0];
 
-                // Flatten object (move nesting to root)
-                $.extend(true, book, details);
-
-                // Add to available array
-                $scope.books.push(book);
-              }
-
-          });
-
-          console.log($scope.books);
-      })
-      .error(function(data, status, headers, config) {
-          console.log(status);
-          $scope.error = status;
-      });
-
-  })
+})
