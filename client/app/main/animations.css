@@ -122,6 +122,12 @@ figure.effect-zoe:hover p.icon-links a:focus {
 	color: #252d31;
 }
 
+figure.effect-zoe img {
+	-webkit-transition: opacity 0.35s;
+	transition: opacity 0.35s;
+	-webkit-backface-visibility: hidden; /* Fix for Chrome 37.0.2062.120 (Mac) */
+}
+
 figure.effect-zoe p,
 figure.effect-zoe p.description {
 	position: absolute;
@@ -168,6 +174,7 @@ figure.effect-zoe p.icon-links a span::before {
 }
 
 figure.effect-zoe {
+
 	opacity: 1;
 }
 
@@ -184,7 +191,7 @@ figure.effect-zoe:hover p.description {
 
 
 figure.effect-zoe:hover img {
-	opacity: .5;
+	opacity: .4;
 }
 
 figure.effect-zoe:hover figcaption,
