@@ -43,3 +43,8 @@
     padding: 10px;
     margin: 10px;
 }
+
+.bg-danger {
+    padding: 15px;
+    margin-top: 15px;
+}

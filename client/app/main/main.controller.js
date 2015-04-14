@@ -41,7 +41,7 @@ angular.module('nytBooksApp')
       })
       .error(function(data, status, headers, config) {
           console.log(status);
-          $scope.error = true;
+          $scope.error = status;
       });
 
     $http.get('/api/nyt/')
@@ -52,7 +52,9 @@ angular.module('nytBooksApp')
       })
       .error(function(data, status, headers, config) {
           console.log(status);
-          $scope.error = true;
+          $scope.error = status;
       });
+
+
 
   })
