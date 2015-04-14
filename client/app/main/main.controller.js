@@ -19,4 +19,16 @@ angular.module('nytBooksApp')
     $scope.deleteThing = function(thing) {
       $http.delete('/api/things/' + thing._id);
     };
-  });
+
+
+    var categoriesAPI = 'http://api.nytimes.com/svc/books/v2/lists/names?api-key=2929e63191572000a0ca99908abab2d3:1:71850106';
+
+    $http.get(categoriesAPI).
+      success(function(data, status, headers, config) {
+          //what do I do here?
+          console.log(data)
+      }).
+      error(function(data, status, headers, config) {
+          $scope.error = true;
+      });
+  })
