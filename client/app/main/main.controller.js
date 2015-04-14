@@ -3,6 +3,7 @@
 angular.module('nytBooksApp')
 .controller('MainCtrl', function ($scope, $http, $timeout, BestSellers) {
 
+    $scope.error = null,
     $scope.loading = true;
     
     // Settings for API
@@ -21,6 +22,8 @@ angular.module('nytBooksApp')
 
     $scope.loadBooks = function(query){
 
+      $scope.error = null;
+
       $scope.loading = true;
 
       query['date'] = query.year + '-01-' + query.month;
@@ -31,6 +34,10 @@ angular.module('nytBooksApp')
         $timeout(function(){
           $scope.loading = false;  
         }, 200);
+
+        if ($scope.books.length < 1){
+          $scope.error = "No Result Found."
+        }
 
         
       }, function(resp){
