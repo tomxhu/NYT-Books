@@ -1,34 +1,59 @@
 'use strict';
 
 angular.module('nytBooksApp')
-  .controller('MainCtrl', function ($scope, $http) {
-    $scope.awesomeThings = [];
+.controller('MainCtrl', function ($scope, $http, $timeout, BestSellers) {
 
-    $http.get('/api/things').success(function(awesomeThings) {
-      $scope.awesomeThings = awesomeThings;
-    });
+    $scope.error = null,
+    $scope.loading = true;
+    
+    // Settings for API
+    $scope.query = {
+      category : "hardcover-fiction",
+      year: "2015",
+      month: "01",
+    }
 
-    $scope.addThing = function() {
-      if($scope.newThing === '') {
-        return;
-      }
-      $http.post('/api/things', { name: $scope.newThing });
-      $scope.newThing = '';
-    };
+    // Available Categories
+    $scope.categories = [];
 
-    $scope.deleteThing = function(thing) {
-      $http.delete('/api/things/' + thing._id);
-    };
+    // List of Best Sellers
+    $scope.books = [];
 
 
-    var categoriesAPI = 'http://api.nytimes.com/svc/books/v2/lists/names?api-key=2929e63191572000a0ca99908abab2d3:1:71850106';
+    $scope.loadBooks = function(query){
 
-    $http.get(categoriesAPI).
-      success(function(data, status, headers, config) {
-          //what do I do here?
-          console.log(data)
-      }).
-      error(function(data, status, headers, config) {
-          $scope.error = true;
-      });
-  })
+      $scope.error = null;
+
+      $scope.loading = true;
+
+      query['date'] = query.year + '-01-' + query.month;
+
+      BestSellers.get(query, function(resp){
+        $scope.books = resp;
+
+        $timeout(function(){
+          $scope.loading = false;  
+        }, 200);
+
+        if ($scope.books.length < 1){
+          $scope.error = "No Result Found."
+        }
+
+        
+      }, function(resp){
+        $scope.error = resp;
+        $scope.loading = false;
+      })
+      
+    }
+
+    BestSellers.categories(function(resp){
+      $scope.categories = resp;
+    },function(resp){
+      $scope.error = resp;
+    })
+
+    $scope.loadBooks($scope.query);
+
+
+})
