@@ -2,6 +2,8 @@
 
 angular.module('nytBooksApp')
 .controller('MainCtrl', function ($scope, $http, BestSellers) {
+
+    $scope.loading = true;
     
     // Settings for API
     $scope.query = {
@@ -19,12 +21,16 @@ angular.module('nytBooksApp')
 
     $scope.loadBooks = function(query){
 
-      query.date = query.year + '/' + query.month + '/01';
+      query['date'] = query.year + '-01-' + query.month;
+
+      console.log(query);
 
       BestSellers.get(query, function(resp){
         $scope.books = resp;
+        $scope.loading = false;
       }, function(resp){
         $scope.error = resp;
+        $scope.loading = false;
       })
       
     }

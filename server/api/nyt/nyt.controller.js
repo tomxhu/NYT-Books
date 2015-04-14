@@ -10,12 +10,18 @@
 'use strict';
 
 var http = require('http');
+var url  = require('url');
 var _ = require('lodash');
 
 // Return list of books
 exports.index = function(req, res) {
 
-  var api_url = 'http://api.nytimes.com/svc/books/v2/lists/2015-01-01/hardcover-fiction?api-key=2929e63191572000a0ca99908abab2d3:1:71850106';
+  var params = url.parse(req.url, true).query;
+
+  var base_url = 'http://api.nytimes.com/svc/books/v2/lists/' 
+  var auth = '?api-key=2929e63191572000a0ca99908abab2d3:1:71850106'
+  
+  var api_url = base_url + '/' + params.date + '/' + params.category + auth;
 
   // Hit NYT API
   http.get(api_url,  function(response){

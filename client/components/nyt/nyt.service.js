@@ -6,8 +6,12 @@ angular.module('nytBooksApp')
     return {
 
     	get : function(query, success, error){
+    		   
+    		   var url = '/api/nyt/'
+    		   url += '?date=' + query.date;
+    		   url += '&category=' + query.category,
 			
-			   $http.get('/api/nyt/', query)
+			   $http.get(url)
 		        .success(function(data, status, headers, config) {
 
 		          var books = [];
