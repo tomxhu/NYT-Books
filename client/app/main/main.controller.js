@@ -3,6 +3,12 @@
 angular.module('nytBooksApp')
   .controller('MainCtrl', function ($scope, $http) {
     
+    // Settings for API
+    $scope.query = {
+      category : null,
+      date: null,
+    }
+
     $scope.awesomeThings = [];
 
     // Available Categories
