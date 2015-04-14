@@ -4,33 +4,35 @@
   <div class="container">
     <h1>Find your next great adventure.</h1>
     <p class="lead">No better time to crack open that book than right before bedtime. Let us help you make your NYT reading experience a stellar one.</p>
-  </br>
-    <p>
+  <!-- </br> -->
+    <!-- <p>
       <a class="btn btn-success btn-large" href="#">Start searching</a>
-    </p>
+    </p> -->
+
+    <div class="row">
+    <div class="col-sm-4">
+        <h2>Select a Category</h2>
+
+        <select ng-model="query.category" class="form-control">
+          <option ng-repeat="category in categories" value="category.display_name">{{category.display_name}}</option>
+        </select>
+    </div>
+    <div class="col-sm-4"></div>
+    <div class="col-sm-4"></div>
+    </div>
   </div>
 </header>
 
-<div class="container">
+<div class="container" style="margin-top: 15px;">
 
   <!-- Error Feedback -->
   <p class="bg-danger" ng-show="error">{{error}}</p>
 
-  <div class="row">
-    <div class="col-lg-12">
-      <h1 class="page-header">Categories:</h1>
-
-      <select ng-model="query.category">
-        <option ng-repeat="category in categories" value="category.display_name">{{category.display_name}}</option>
-      </select>
-
-    </div>
-    <div class="col-lg-12 books">
-      <h1 class="page-header">Books:</h1>
-      <div class="col-sm-4" ng-repeat="book in books">
-        <div class="book-preview">
-          <a href="#" tooltip="{{book.list_name_encoded}}">{{book.book_details[0].title}}</a>
-        </div>
+  <div class="col-lg-12 books">
+    <div class="col-sm-3" ng-repeat="book in books">
+      <div class="book-preview" >
+        <!-- <a href="#" tooltip="{{book.list_name_encoded}}">{{book.title}}</a> -->
+        <img ng-src="{{book.book_image}}" />
       </div>
     </div>
   </div>
