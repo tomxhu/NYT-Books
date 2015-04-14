@@ -186,12 +186,29 @@ figure.effect-zoe:hover p.description {
 	opacity: 1;
 	font-style: italic;
 	color: #fff;
+	top: -320px;
 	/*background-color: rgba(0,0,0,.5)*/
 }
 
+/*figure.effect-zoe:hover i.favorite {
+  font-size: 80px;
+  color: red;
+  opacity: .8;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  position: relative;
+  top: -375px;
 
+}
+
+figure.effect-zoe:hover i.favorite:hover {
+	font-size: 100px;
+}
+*/
 figure.effect-zoe:hover img {
-	opacity: .4;
+	opacity: .2;
 }
 
 figure.effect-zoe:hover figcaption,

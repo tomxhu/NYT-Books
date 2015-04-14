@@ -64,13 +64,11 @@
       <figure class="effect-zoe">
         <img ng-src="{{book.book_image}}" alt="{{book.book_image}}">
         <figcaption>
-          <h2>{{ book.title }}</h2>
-          <p class="icon-links">
-            <a href="#"><span class="icon-heart"></span></a>
-            <a href="#"><span class="icon-eye"></span></a>
-            <a href="#"><span class="icon-paper-clip"></span></a>
-          </p>
-          <p class="description">{{ book.description }}</p>
+           <!-- <i class="fa fa-heart favorite"></i> -->
+           <p class="description">
+             {{ book.description }}
+           </p>
+           <h2>{{ book.title }}</h2>
         </figcaption>     
       </figure>
     </div>
