@@ -12,6 +12,8 @@ App can be viewed online at: http://nyt-books.herokuapp.com/
 
 ## Build & development
 
+Run `mongod` to start your database
+
 Run `grunt` for building and `grunt serve` for preview.
 
 Run `grunt buildcontrol:heroku` to deploy to heroku
