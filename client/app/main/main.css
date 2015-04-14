@@ -35,6 +35,8 @@
 
 .books .col-sm-4 {
     padding: 0px;
+    height: 475px;
+    overflow: hidden;
 }
 
 .books .book-preview {
