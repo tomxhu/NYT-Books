@@ -1,4 +1,12 @@
-# nyt-books
+# New York Times Books
+
+> Web App for searching the New York Times best sellter list. 
+
+# Demo
+
+App can be viewed online at: http://nyt-books.herokuapp.com/ 
+
+# Development
 
 `npm install` and `bower install` if the grunt task doesn't do it for you automatically
 
@@ -13,4 +21,3 @@ Run `grunt buildcontrol:heroku` to deploy to heroku
 
 Running `grunt test` will run the unit tests with karma.
 
-App can be viewed here: http://nyt-books.herokuapp.com/ 
