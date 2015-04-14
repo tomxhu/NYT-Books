@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('nytBooksApp')
-.controller('MainCtrl', function ($scope, $http, BestSellers) {
+.controller('MainCtrl', function ($scope, $http, $timeout, BestSellers) {
 
     $scope.loading = true;
     
@@ -21,13 +21,18 @@ angular.module('nytBooksApp')
 
     $scope.loadBooks = function(query){
 
-      query['date'] = query.year + '-01-' + query.month;
+      $scope.loading = true;
 
-      console.log(query);
+      query['date'] = query.year + '-01-' + query.month;
 
       BestSellers.get(query, function(resp){
         $scope.books = resp;
-        $scope.loading = false;
+
+        $timeout(function(){
+          $scope.loading = false;  
+        }, 200);
+
+        
       }, function(resp){
         $scope.error = resp;
         $scope.loading = false;
