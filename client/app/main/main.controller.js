@@ -19,6 +19,15 @@ angular.module('nytBooksApp')
     // List of Best Sellers
     $scope.books = [];
 
+    $scope.selected = -1;
+
+    // Select a specific book
+    $scope.select = function(index){
+      $scope.selected = index;
+
+      $('.modal').modal({show : true});
+    }
+
 
     $scope.loadBooks = function(query){
 
