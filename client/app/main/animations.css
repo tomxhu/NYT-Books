@@ -16,16 +16,16 @@
 	float: left;
 	overflow: hidden;
 	margin: 10px 1%;
-	/*min-width: 320px;
-	max-width: 480px;
-	max-height: 360px;
-	width: 48%;*/
 	height: auto;
 	background: #000;
 	text-align: center;
 	cursor: pointer;
 	width: 300px;
 	opacity: 1;
+}
+
+.grid figure h2{
+	font-size: 20px;
 }
 
 .grid figure img {

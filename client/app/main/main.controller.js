@@ -6,7 +6,7 @@ angular.module('nytBooksApp')
     $scope.error = null,
     $scope.loading = true;
     
-    // Settings for API
+    // Settings for API (Default)
     $scope.query = {
       category : "hardcover-fiction",
       year: "2015",
@@ -25,7 +25,7 @@ angular.module('nytBooksApp')
     $scope.select = function(index){
       $scope.selected = index;
 
-      $('.modal').modal({show : true});
+      // $('.modal').modal({show : true});
     }
 
 

@@ -7,6 +7,7 @@ angular.module('nytBooksApp', [
   'ui.router',
   'ui.bootstrap'
 ])
+
   .config(function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
     $urlRouterProvider
       .otherwise('/');
