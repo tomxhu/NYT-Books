@@ -12,6 +12,18 @@ angular.module('nytBooksApp')
           controller:'password'
         }
       },
+      getFavorites: {
+        method: 'GET',
+        params: {
+          controller:'favorites'
+        }
+      },
+      getReviews: {
+        method: 'GET',
+        params: {
+          controller:'reviews'
+        }
+      },
       get: {
         method: 'GET',
         params: {
