@@ -25,7 +25,10 @@ angular.module('nytBooksApp')
     $scope.select = function(index){
       $scope.selected = index;
 
-      // $('.modal').modal({show : true});
+      $scope.selectedBook = $scope.books[index]
+      console.log($scope.selectedBook);
+      
+      $('#myModal').modal({show : true});
     }
 
     $scope.loadBooks = function(query){
@@ -64,32 +67,3 @@ angular.module('nytBooksApp')
     $scope.loadBooks($scope.query);
 
 })
-
-angular.module('nytBooksApp')
-.controller('ModalDemoCtrl', function ($scope, $modal, $log) {
-  $scope.open = function (size) {
-
-    var modalInstance = $modal.open({
-      controller: 'ModalInstanceCtrl',
-      size: size,
-    })
-  }
-});
-
-
-angular.module('nytBooksApp')
-    .controller('ModalInstanceCtrl', function ($scope, $modalInstance, items) {
-
-      $scope.books = books;
-      $scope.selected = {
-        book: $scope.books[0]
-      };
-
-      $scope.ok = function () {
-        $modalInstance.close($scope.selected.book);
-      };
-
-      $scope.cancel = function () {
-        $modalInstance.dismiss('cancel');
-      };
-    });
