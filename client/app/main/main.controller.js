@@ -6,7 +6,7 @@ angular.module('nytBooksApp')
     $scope.error = null,
     $scope.loading = true;
     
-    // Settings for API
+    // Settings for API (Default)
     $scope.query = {
       category : "hardcover-fiction",
       year: "2015",
@@ -24,6 +24,20 @@ angular.module('nytBooksApp')
     $scope.favorites = $scope.isLoggedIn ? Auth.getFavorites() : []
     console.log($scope.isLoggedIn);
     console.log($scope.favorites);
+
+    $scope.selected = -1;
+
+    // Select a specific book
+    $scope.select = function(index){
+      $scope.selected = index;
+
+      $scope.selectedBook = $scope.books[index]
+      console.log($scope.selectedBook);
+      
+      $('#myModal').modal({show : true});
+
+       // $filter('date')(date, format, longDate)
+    }
 
     $scope.loadBooks = function(query){
 
@@ -59,6 +73,5 @@ angular.module('nytBooksApp')
     })
 
     $scope.loadBooks($scope.query);
-
 
 })
