@@ -61,8 +61,9 @@
 
   <div class="col-lg-12 grid books">
     <div class="col-sm-4" ng-repeat="book in books" ng-click="select($index)">
+      
       <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
+        <div class="modal-dialog" ng-controller="ModalDemoCtrl">
           <div class="modal-content">
             <div class="modal-header">
               <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -78,6 +79,7 @@
           </div>
         </div>
       </div>
+
       <figure class="effect-zoe">
         <img ng-src="{{book.book_image}}" alt="{{book.book_image}}">
         <figcaption>
