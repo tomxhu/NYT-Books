@@ -107,7 +107,7 @@ angular.module('nytBooksApp')
        * @return {Boolean}
        */
       isLoggedIn: function() {
-        return currentUser.hasOwnProperty('role');
+        return currentUser.hasOwnProperty('name');
       },
 
       /**
@@ -120,7 +120,7 @@ angular.module('nytBooksApp')
           }).catch(function() {
             cb(false);
           });
-        } else if(currentUser.hasOwnProperty('role')) {
+        } else if(currentUser.hasOwnProperty('name')) {
           cb(true);
         } else {
           cb(false);
@@ -141,6 +141,13 @@ angular.module('nytBooksApp')
        */
       getToken: function() {
         return $cookieStore.get('token');
+      },
+
+      getFavorites: function() {
+        return currentUser.booksFavorited;
+      },
+      getReviews: function() {
+        return currentUser.reviewsWritten;
       }
     };
   });

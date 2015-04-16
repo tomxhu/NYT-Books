@@ -13,7 +13,7 @@ angular.module('nytBooksApp')
           name: $scope.user.name,
           email: $scope.user.email,
           password: $scope.user.password,
-          profileImg: $scope.user.profileImg
+          profileImg: $scope.user.profileImg,
         })
         .then( function() {
           // Account created, redirect to home

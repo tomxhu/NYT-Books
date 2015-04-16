@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('nytBooksApp')
-.controller('MainCtrl', function ($scope, $http, $timeout, BestSellers) {
+.controller('MainCtrl', function ($scope, $http, $timeout, BestSellers, Auth) {
 
     $scope.error = null,
     $scope.loading = true;
@@ -19,6 +19,11 @@ angular.module('nytBooksApp')
     // List of Best Sellers
     $scope.books = [];
 
+    $scope.isLoggedIn = Auth.isLoggedIn();
+
+    $scope.favorites = $scope.isLoggedIn ? Auth.getFavorites() : []
+    console.log($scope.isLoggedIn);
+    console.log($scope.favorites);
 
     $scope.loadBooks = function(query){
 
