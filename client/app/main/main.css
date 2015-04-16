@@ -12,7 +12,8 @@
 }
 
 .fa-book {
-    font-size: 1.5em;
+    font-size: 32px;
+    line-height: 20px;
 }
 
 hr {
@@ -115,6 +116,15 @@ hr {
   font-size: 40px;
   margin-right: 14px;
 }
+
+.modal.book-preview {
+
+}
+
+.modal.book-preview img {
+    width: 100%;
+}
+
 
 @media (min-width: 1200px) {
     .container {
