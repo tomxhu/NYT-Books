@@ -90,19 +90,24 @@
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <i class="text-muted fa fa-book">
         <h4 class="modal-title" id="myModalLabel">{{ selectedBook.title }}</h4></i>
-        <br>
-        {{ selectedBook.description }}
-        <hr>
+
       </div>
       <div class="modal-body" id="book-info">
-        <p><b>By:</b> {{ selectedBook.author }}</p>
-        <p><b>ISBN:</b> {{ selectedBook.primary_isbn13 }}</p>
-        <p><b>Publisher:</b> {{ selectedBook.publisher }}</p>
+        <div class="row">
+          <div class="col-sm-4">
+            <img ng-src="{{selectedBook.book_image}}" alt="{{selectedBook.book_image}}">
+          </div>
+          <div class="col-sm-8">
+            <p>{{ selectedBook.description }}</p>
+            <p><b>By:</b> {{ selectedBook.author }}</p>
+            <p><b>ISBN:</b> {{ selectedBook.primary_isbn13 }}</p>
+            <p><b>Publisher:</b> {{ selectedBook.publisher }}</p>
+            <p><b>Rank:</b> {{ selectedBook.rank }} in {{ selectedBook.display_name }}</p>
+            <p><b>Bestseller's Date:</b> {{ selectedBook.bestsellers_date | date : format : longDate}}</p>
+          </div>
+        </div>
         <hr>
       </br>
-        <p><b>Rank:</b> {{ selectedBook.rank }} on <b>List:</b> {{ selectedBook.display_name }}</p>
-        <p><b>Bestseller's Date:</b> {{ selectedBook.bestsellers_date | date : format : longDate}}</p>
-        <hr>
         <h3>Reviews</h3>
       </div>
       <div class="modal-footer">
