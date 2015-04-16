@@ -30,7 +30,7 @@ angular.module('nytBooksApp')
       
       $('#myModal').modal({show : true});
 
-       $filter('date')(date, format, longDate)
+       // $filter('date')(date, format, longDate)
     }
 
     $scope.loadBooks = function(query){

@@ -9,22 +9,19 @@
 <header class="hero-unit" id="banner">
   <div class="container">
     <h1>Find your next great adventure.</h1>
-    <p class="lead">No better time to crack open that book than right before bedtime. Let us help you make your NYT reading experience a stellar one.</p>
-  <!-- </br> -->
-    <!-- <p>
-      <a class="btn btn-success btn-large" href="#">Start searching</a>
-    </p> -->
-
+    <p class="lead">No better time to crack open that book than right before bedtime. <br>Let us help you find your next book through the New York Times best sellers.</p>
+    <br>
+  
     <div class="row">
     <div class="col-sm-4">
-        <h2>Select a Category</h2>
+        <p>Select a Category</p>
 
         <select ng-model="query.category" class="form-control" ng-change="loadBooks(query)">
           <option ng-repeat="category in categories" value="{{category.list_name_encoded}}">{{category.display_name}}</option>
         </select>
     </div>
     <div class="col-sm-4">
-        <h2>Select a Year</h2>
+        <p>Select a Year</p>
 
         <select ng-model="query.year" class="form-control" ng-change="loadBooks(query)">
           <option value="2015">2015</option>
@@ -36,7 +33,7 @@
         </select>
     </div>
     <div class="col-sm-4">
-        <h2>Select a Month</h2>
+        <p>Select a Month</p>
 
         <select ng-model="query.month" class="form-control" ng-change="loadBooks(query)">
           <option value="01">January</option>
@@ -83,7 +80,7 @@
   </div>
 </footer>
 
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade book-preview" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
