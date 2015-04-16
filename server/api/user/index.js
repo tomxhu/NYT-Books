@@ -14,4 +14,7 @@ router.put('/:id/password', auth.isAuthenticated(), controller.changePassword);
 router.get('/:id', auth.isAuthenticated(), controller.show);
 router.post('/', controller.create);
 
+router.get('/:id/favorites', auth.isAuthenticated(), controller.favorites);
+router.get('/:id/reviews', auth.isAuthenticated(), controller.reviews);
+
 module.exports = router;
