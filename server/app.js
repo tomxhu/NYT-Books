@@ -14,6 +14,11 @@ var config = require('./config/environment');
 // Connect to database
 mongoose.connect(config.mongo.uri, config.mongo.options);
 
+mongoose.connection.on('error', function (err) {
+ 	console.log("\nError connecting to MongoDB. See the README.md for details.");
+ 	console.log('Did you remember to start the server? "$sudo mongod"\n');
+});
+
 // Populate DB with sample data
 if(config.seedDB) { require('./config/seed'); }
 
@@ -25,7 +30,7 @@ require('./routes')(app);
 
 // Start server
 server.listen(config.port, config.ip, function () {
-  console.log('Express server listening on %d, in %s mode', config.port, app.get('env'));
+  console.log('\nExpress server listening on %d, in %s mode', config.port, app.get('env'));
 });
 
 // Expose app
