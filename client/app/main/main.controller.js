@@ -29,6 +29,8 @@ angular.module('nytBooksApp')
       console.log($scope.selectedBook);
       
       $('#myModal').modal({show : true});
+
+       $filter('date')(date, format, longDate)
     }
 
     $scope.loadBooks = function(query){

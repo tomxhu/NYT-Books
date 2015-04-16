@@ -2,6 +2,24 @@
     margin: 20px 0;
 }
 
+.modal-title {
+    display: inline;
+    font-size: 24px;
+}
+
+#book-info {
+    padding-top: 0px;
+}
+
+.fa-book {
+    font-size: 1.5em;
+}
+
+hr {
+    margin-top: 10px;
+    margin-bottom: 0px;
+}
+
 #banner {
     border-bottom: none;
     margin-top: -20px;
