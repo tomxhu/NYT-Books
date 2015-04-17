@@ -14,6 +14,4 @@ angular.module('nytBooksApp')
     	.error(function(resp){
     		$scope.error = "Error loading user";
     	})
-
-
   });
