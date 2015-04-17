@@ -148,6 +148,14 @@ hr {
    color: gold;
 }
 
+.rating > span.active {
+  color: gold; 
+}
+
+
+
+
+
 
 @media (min-width: 1200px) {
     .container {
