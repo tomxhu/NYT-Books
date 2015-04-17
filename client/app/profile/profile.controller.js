@@ -7,7 +7,7 @@ angular.module('nytBooksApp')
 
     var id = $stateParams.id;
 
-    $http.get('/api/user/' + id)
+    $http.get('/api/users/' + id)
     	.success(function(user){
     		$scope.user = user;
     	})
