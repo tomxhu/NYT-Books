@@ -14,9 +14,6 @@ angular.module('nytBooksApp')
       month: "01",
     }
 
-    // Create Review
-    $scope.createReview = Review.createReviews();
-
     // Available Categories
     $scope.categories = [];
 
