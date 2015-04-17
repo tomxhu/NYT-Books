@@ -108,7 +108,7 @@
         <h3>Rate This Book</h3>
 
         <div class="rating">
-          <span ng-repeat="rating in [5,4,3,2,1]" ng-click="rate(rating)">☆</span>
+          <span ng-repeat="score in [5,4,3,2,1]" ng-click="rate(score)" ng-class="{'active' : score <= rating}">☆</span>
         </div>
       </div>
       <div class="modal-footer">

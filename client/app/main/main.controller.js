@@ -1,10 +1,11 @@
 'use strict';
 
 angular.module('nytBooksApp')
-.controller('MainCtrl', function ($scope, $http, $timeout, BestSellers, Auth) {
+.controller('MainCtrl', function ($scope, $http, $timeout, BestSellers, Ratings, Auth) {
 
     $scope.error = null,
     $scope.loading = true;
+    $scope.rating = 0;
     
     // Settings for API (Default)
     $scope.query = {
@@ -29,6 +30,9 @@ angular.module('nytBooksApp')
 
     // Select a specific book
     $scope.select = function(index){
+
+      $scope.rating = 0;
+
       $scope.selected = index;
 
       $scope.selectedBook = $scope.books[index]
@@ -67,7 +71,16 @@ angular.module('nytBooksApp')
 
     // Give a rating to a book
     $scope.rate = function(rating){
+
+      $scope.rating = rating;
+      
       console.log(rating);
+
+      Ratings.create({
+        rating : rating,
+        book : $scope.selectedBook.id,
+      }, function(){}, function(){})
+      
     }
 
     BestSellers.categories(function(resp){
