@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('nytBooksApp')
-.controller('MainCtrl', function ($scope, $http, $timeout, BestSellers, Auth) {
+.controller('MainCtrl', function ($scope, $http, $timeout, BestSellers, Auth, Review) {
 
     $scope.error = null,
     $scope.loading = true;
@@ -12,6 +12,9 @@ angular.module('nytBooksApp')
       year: "2015",
       month: "01",
     }
+
+    // Create Review
+    $scope.createReview = Review.createReviews();
 
     // Available Categories
     $scope.categories = [];
