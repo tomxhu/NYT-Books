@@ -8,5 +8,5 @@ module.exports = {
     uri: 'mongodb://localhost/nytbooks-dev'
   },
 
-  seedDB: true
+  seedDB: false
 };
