@@ -126,17 +126,26 @@ hr {
 }
 
 .rating {
-    display: inline;
+  unicode-bidi: bidi-override;
+  direction: rtl;
+  text-align: center;
 }
-
-.rating .star {
-    font-size: 52px;
-    display: inline;
-    color: #CDCDCD;
+.rating > span {
+  display: inline-block;
+  position: relative;
+  width: 1.1em;
+  font-size: 60px;
 }
-
-.rating .star:hover {
-    color: rgb(255, 209, 63);
+.rating > span:hover,
+.rating > span:hover ~ span {
+  color: transparent;
+}
+.rating > span:hover:before,
+.rating > span:hover ~ span:before {
+   content: "\2605";
+   position: absolute;
+   left: 0;
+   color: gold;
 }
 
 
