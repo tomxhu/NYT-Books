@@ -37,6 +37,7 @@ angular.module('nytBooksApp')
       $('#myModal').modal({show : true});
     }
 
+    // Load books
     $scope.loadBooks = function(query){
 
       $scope.error = null;
@@ -62,6 +63,11 @@ angular.module('nytBooksApp')
         $scope.loading = false;
       })
       
+    }
+
+    // Give a rating to a book
+    $scope.rate = function(rating){
+      console.log(rating);
     }
 
     BestSellers.categories(function(resp){
