@@ -43,7 +43,7 @@ angular.module('nytBooksApp')
 
       $scope.loading = true;
 
-      query['date'] = query.year + '-01-' + query.month;
+      query['date'] = query.year + '-' + query.month + '-01';
 
       BestSellers.get(query, function(resp){
         $scope.books = resp;
