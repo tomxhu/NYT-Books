@@ -12,8 +12,6 @@ var UserSchema = new Schema({
     default: 'user'
   },
   profileImg: String,
-  booksFavorited: Array,
-  reviewsWritten: Array,
   hashedPassword: String,
   provider: String,
   salt: String
