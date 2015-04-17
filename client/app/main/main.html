@@ -100,8 +100,14 @@
             <p><b>Publisher:</b> {{ selectedBook.publisher }}</p>
             <p><b>Rank:</b> {{ selectedBook.rank }} in {{ selectedBook.display_name }}</p>
             <p><b>Bestseller's Date:</b> {{ selectedBook.bestsellers_date | date : format : longDate}}</p>
-          </div>
+          </div>          
         </div>
+        <div class="row">
+          <h1>Rate
+            <div class="rating">
+              <span ng-repeat="score in [5,4,3,2,1]" ng-click="rate(score)" ng-class="{'active' : score <= rating}">☆</span>
+            </div>
+          </h1>
         <hr>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
