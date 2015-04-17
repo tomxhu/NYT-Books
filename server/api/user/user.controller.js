@@ -93,25 +93,14 @@ exports.me = function(req, res, next) {
   });
 };
 
-exports.favorites = function (req, res, next) {
+exports.profileIMG = function (req, res, next) {
   var userId = req.user._id;
   User.findOne({
     _id: userId
   }, '-salt -hashedPassword', function(err, user) { // don't ever give out the password or salt
     if (err) return next(err);
     if (!user) return res.json(401);
-    res.json(user.booksFavorited);
-  });
-}
-
-exports.reviews = function (req, res, next) {
-  var userId = req.user._id;
-  User.findOne({
-    _id: userId
-  }, '-salt -hashedPassword', function(err, user) { // don't ever give out the password or salt
-    if (err) return next(err);
-    if (!user) return res.json(401);
-    res.json(user.reviewsWritten);
+    res.json(user.profileIMG);
   });
 }
 
