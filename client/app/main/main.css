@@ -125,6 +125,20 @@ hr {
     width: 100%;
 }
 
+.rating {
+    display: inline;
+}
+
+.rating .star {
+    font-size: 52px;
+    display: inline;
+    color: #CDCDCD;
+}
+
+.rating .star:hover {
+    color: rgb(255, 209, 63);
+}
+
 
 @media (min-width: 1200px) {
     .container {

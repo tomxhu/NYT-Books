@@ -105,7 +105,12 @@
         </div>
         <hr>
       </br>
-        <h3>Reviews</h3>
+        <h3>Rate This Book</h3>
+        <div class="rating">
+          <div class="star" ng-repeat="rating in [1,2,3,4,5]" ng-click="rate(rating)">
+            <i class="fa fa-star"></i>
+          </div>
+        </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
