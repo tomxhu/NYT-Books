@@ -1,6 +1,7 @@
 <div ng-include="'components/navbar/navbar.html'"></div>
 
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
 
 <div id="loading" ng-class="{active:loading}">
   <i class="fa fa-gear fa-spin"></i>
@@ -33,7 +34,7 @@
         </td>
         <td>{{ rating.book }}</td>
     		<td>{{ rating.isbn13 }}</td>
-    		<td><a href="/profile/{{ rating.user }}">User</a></td>
+    		<td><a href="/profile/{{ rating.user }}">{{ rating.userName }}</a></td>
     	</tr>
     </tbody>
   </table>

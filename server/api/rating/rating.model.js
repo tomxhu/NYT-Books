@@ -8,6 +8,7 @@ var RatingSchema = new Schema({
 	book : String,
 	rating : Number,
 	user : String,
+	userName : String,
 });
 
 module.exports = mongoose.model('Rating', RatingSchema);

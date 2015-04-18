@@ -5,9 +5,9 @@ angular.module('nytBooksApp')
     $scope.message = 'Hello';
 
     $scope.ratings = [];
+    $scope.users = [];
 
     Ratings.get(function(ratings){
     	$scope.ratings = ratings;
     })
-
   });

@@ -86,9 +86,9 @@ angular.module('nytBooksApp')
 
       $scope.rating = rating;
 
-      var userId = Auth.getCurrentUser()._id;
+      var user = Auth.getCurrentUser();
 
-      if (!userId) {
+      if (!user) {
         alert("login");
       } else {
         
@@ -98,7 +98,8 @@ angular.module('nytBooksApp')
           rating : rating,
           book : $scope.selectedBook.title,
           isbn13 : $scope.selectedBook.primary_isbn13,
-          user : userId,
+          user : user._id,
+          userName : user.name,
 
         }, function(){
 

@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('nytBooksApp')
-  .factory('Ratings', function Auth($rootScope, $http) {
-    
+  .factory('Ratings', function Auth($rootScope, $http, User) {
+
     return {
 
     	create : function(rating, success, error){

@@ -29,6 +29,10 @@ angular.module('nytBooksApp')
         params: {
           id:'me'
         }
+      },
+      list: {
+        method: 'GET',
+        isArray: true,
       }
 	  });
   });

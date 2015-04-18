@@ -139,7 +139,8 @@
                       <i class="fa fa-star" ng-show="4 <= rating.rating"></i>
                       <i class="fa fa-star" ng-show="5 <= rating.rating"></i>
                     </td>
-                    <td><a ng-click="goToProfile(rating.user)">User</a></td>
+                    <td><a ng-click="goToProfile(rating.user)"> {{ rating.userName }}</a></td>
+
                   </tr>
                 </tbody>
             </table>
