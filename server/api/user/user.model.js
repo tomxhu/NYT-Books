@@ -39,7 +39,8 @@ UserSchema
     return {
       'name': this.name,
       'profileImg': this.profileImg,
-      'following' : this.following
+      'following' : this.following,
+      '_id' : this._id,
     };
   });
 

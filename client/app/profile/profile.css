@@ -1,6 +1,13 @@
-img.profile-image {
+.profile-picture {
 	width: 100%;
-	max-width: 200px;
 	margin: 35px auto 20px;
-	display: inherit;
+}
+
+.profile-picture img {
+	margin: 0 auto;
+	display: block;
+}
+
+.follower-options .btn {
+	width: 100%;
 }

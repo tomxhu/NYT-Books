@@ -1,65 +1,58 @@
 <div ng-include="'components/navbar/navbar.html'"></div>
-
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-
 <div id="loading" ng-class="{active:loading}">
   <i class="fa fa-gear fa-spin"></i>
 </div>
-
 <div class="container" style="margin-top: 15px;">
-
   <!-- Error Feedback -->
   <p class="bg-danger" ng-show="error">{{error}}</p>
   
   <!-- Name and profile picture -->
   <div class="row" style="margin-bottom: 60px;">
     <div class="col-md-4">
-      <img class="profile-image" ng-src="{{ user.profileImg }}" />
-      <div ng-hide="following" class="btn btn-default" ng-click="follow(id, true)"><i class="fa fa-heart"></i> Follow this User</div>
-      <div ng-show="following" class="btn btn-default" ng-click="follow(id, false)"><i class="fa fa-heart"></i> Unfollow this User</div>
+      <div class="profile-picture">
+        <img ng-src="{{ user.profileImg }}" />
+      </div>
+      
       <h2>{{ user.name }}</h2>
-    </div>
-    <div class="col-md-8">
-        <h1>Reviews by {{ user.name }} ({{ ratings.length }})</h1>
-        <table class="table table-striped">
-            <thead>
-              <tr>
-                <th>Book Title</th>
-                <th>Rating</th>
-                <th>ISBN</th>
-                <th class="pull-right">Delete</th>
-              </tr>
-            </thead>
-              <tbody>
-                <tr ng-repeat="rating in ratings">
-                  <td>{{ rating.book }}</td>
-                  <td>
-                    <i class="fa fa-star" ng-show="1 <= rating.rating"></i>
-                    <i class="fa fa-star" ng-show="2 <= rating.rating"></i>
-                    <i class="fa fa-star" ng-show="3 <= rating.rating"></i>
-                    <i class="fa fa-star" ng-show="4 <= rating.rating"></i>
-                    <i class="fa fa-star" ng-show="5 <= rating.rating"></i>
-                  </td>
-                  <td>{{ rating.isbn13 }}</td>
-                  <td><a ng-click="deleteRating(rating._id)"><i class="fa fa-trash-o pull-right"></i></a></td>
-                </tr>
-              </tbody>
-          </table>
-    </div>
-  </div>
-  
 
-  <!-- View ratings on profile page -->
-  <div class="row">
-    <div class="col-sm-12">
-
-
+      <div class="follower-options" ng-hide="user._id == currentUser._id">
+        <div ng-hide="following" class="btn btn-default" ng-click="follow(id, true)"><i class="fa fa-heart"></i> Follow this User</div>
+        <div ng-show="following" class="btn btn-default" ng-click="follow(id, false)"><i class="fa fa-heart"></i> Unfollow this User</div>
       </div>
     </div>
+    <div class="col-md-8">
+      <h1>Reviews by {{ user.name }} ({{ ratings.length }})</h1>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Book Title</th>
+            <th>Rating</th>
+            <th>ISBN</th>
+            <th class="pull-right">Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="rating in ratings">
+            <td>{{ rating.book }}</td>
+            <td>
+              <i class="fa fa-star" ng-show="1 <= rating.rating"></i>
+              <i class="fa fa-star" ng-show="2 <= rating.rating"></i>
+              <i class="fa fa-star" ng-show="3 <= rating.rating"></i>
+              <i class="fa fa-star" ng-show="4 <= rating.rating"></i>
+              <i class="fa fa-star" ng-show="5 <= rating.rating"></i>
+            </td>
+            <td>{{ rating.isbn13 }}</td>
+            <td><a ng-click="deleteRating(rating._id)"><i class="fa fa-trash-o pull-right"></i></a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </div>
-
+  
 <footer class="footer">
   <div class="container">
-      <p>CS 4550 Final Project</p>
+    <p>CS 4550 Final Project</p>
   </div>
 </footer>

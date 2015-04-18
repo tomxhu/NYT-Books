@@ -9,10 +9,15 @@ angular.module('nytBooksApp')
 
     $scope.following = false;
 
+    $scope.currentUser = Auth.getCurrentUser();
+
     // Load user information
     $http.get('/api/users/' + $scope.id)
     	.success(function(user){
     		$scope.user = user;
+
+        console.log($scope.user);
+        console.log($scope.currentUser);
     	})
     	.error(function(resp){
     		$scope.error = "Error loading user";
