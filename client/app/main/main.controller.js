@@ -31,6 +31,7 @@ angular.module('nytBooksApp')
 
     // Select a specific book
     $scope.select = function(index){
+      $scope.isLoggedIn = Auth.isLoggedIn();
 
       $scope.rating = 0;
 
