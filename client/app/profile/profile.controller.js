@@ -2,14 +2,15 @@
 
 //  Profile Controller
 angular.module('nytBooksApp')
-  .controller('ProfileCtrl', function ($scope, $http, $stateParams, Ratings) {
-    
+  .controller('ProfileCtrl', function ($scope, $http, $stateParams, Ratings, Auth) {
+  
     $scope.error = null;
+    $scope.id = $stateParams.id;
 
-    var id = $stateParams.id;
+    $scope.following = false;
 
     // Load user information
-    $http.get('/api/users/' + id)
+    $http.get('/api/users/' + $scope.id)
     	.success(function(user){
     		$scope.user = user;
     	})
@@ -19,10 +20,7 @@ angular.module('nytBooksApp')
 
     // Load user ratings
     $scope.loadRatings = function(){
-
-        var query = { user : id };
-
-        Ratings.search(query,function(ratings){
+        Ratings.search({ user : $scope.id },function(ratings){
           $scope.ratings = ratings;
         })
     }
@@ -36,5 +34,32 @@ angular.module('nytBooksApp')
       }, function(){
       })
     };
+
+    $scope.follow = function(id, boolean){
+      $scope.following = boolean;
+      console.log(boolean);
+
+      // FALLOW
+      if (boolean) {
+        Auth.addFollower(id, function(resp){
+
+          console.log(Auth.getCurrentUser())
+          $scope.following = true;
+
+        },function(resp){
+
+        })
+
+      // UNFOLLOW
+      } else {
+        Auth.removeFollower(id, function(resp){
+          $scope.following = false;
+
+        },function(resp){
+
+        })
+      }
+
+    }
 
   });

@@ -38,9 +38,11 @@ UserSchema
   .get(function() {
     return {
       'name': this.name,
-      'profileImg': this.profileImg
+      'profileImg': this.profileImg,
+      'following' : this.following
     };
   });
+
 
 // Non-sensitive info we'll be putting in the token
 UserSchema
