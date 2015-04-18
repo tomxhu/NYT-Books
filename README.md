@@ -1,6 +1,6 @@
 # New York Times Bestseller List
 
-> It's hard to find a good book! Use our tool for searching the New York Times best seller. See the most popular books in each category, and sort by date. Select a book to read more about it's author and details. See ratings that other users have submitted. Create an account to submit ratings of your own. Visit the 'ratings' page and view the top rating books, as well and finding and following specific users.
+> It's hard to find a good book! Use our tool for searching the New York Times best seller. See the most popular books in each category, and sort by date. Select a book to read more about it's author and details. See ratings that other users have submitted. Create an account to submit ratings of your own. Visit the 'ratings' page and view the top rating books, as well and finding and following specific users. This project serves as a demonstration of rapid app development using the MEAN Stack. Developed for the final project of CS4550 Web Development.
 
 ## Demo
 
