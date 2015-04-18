@@ -6,10 +6,10 @@ angular.module('nytBooksApp')
     $scope.errors = {};
 
     $scope.authors = [
-      "/images/jk-rowling.jpg",
-      "/images/john-green.jpg",
-      "/images/mark-twain.jpg",
-      "/images/shakespeare.jpg",
+      "http://i.imgur.com/gwZdiVs.jpg?1",
+      "http://i.imgur.com/aTawZtP.jpg?1",
+      "http://i.imgur.com/ZFUMfvQ.jpg?1",
+      "http://i.imgur.com/JvKt5Bv.jpg?1",
     ]
 
     $scope.register = function(form) {
