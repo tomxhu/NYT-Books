@@ -1,13 +1,13 @@
-# New York Times Books
+# New York Times Bestseller List
 
-> It's hard to find a good book! Use our tool for searching the New York Times best seller. See the most popular books in each category, and sort by date. Select a book to read more about it's author and details, as well as see the ratings from other users. Create an account to submit ratings of your own. Visit the /ratings page and view the top rating books, as well and finding and following specific users who have creating ratings.
+> It's hard to find a good book! Use our tool for searching the New York Times best seller. See the most popular books in each category, and sort by date. Select a book to read more about it's author and details. See ratings that other users have submitted. Create an account to submit ratings of your own. Visit the 'ratings' page and view the top rating books, as well and finding and following specific users.
 
-# Demo
+## Demo
 
 [Play with the Demo](http://nyt-books.herokuapp.com/ ) or
 [Watch the Video Walkthrough](https://www.youtube.com/watch?v=jF4i1K63SDQ )
 
-# Features
+## Features
 
 > A high level overview of functionality.
 
@@ -23,26 +23,23 @@ Settings - By clicking on the settings page, represented by the gear icon in the
 
 Ratings - This is a top rated list where you will find all the ratings submitted by users. Here, you may click on the User link to be navigated to the user who provided that rating for more information about them. 
 
-### Routes
-
-### API
-
-# Running Locally
+# Development
 
 ### Get Dependencies
 
 Grab Node dependencies with `npm install` 
+
 Grab Front End dependencies with `bower install`
 
 ### Build & Development
+
+> Note: Deploying requires permission to deploy to our Heroku staging server.
 
 Run `mongod` to start your database
 
 Run `grunt serve` to build the project and start a local server
 
 Run `grunt buildcontrol:heroku` to deploy to heroku.
-
-> Note: This requires permission to deploy to our Heroku staging server.
 
 # Testing
 
@@ -66,8 +63,6 @@ Running `grunt test` will run the unit tests with karma.
 - [Underscore.js](http://underscorejs.org/)
 
 > Backend Resources
-
-For more information about using Node.js on Heroku, see these Dev Center articles:
 
 - [Getting Started with Node.js on Heroku](https://devcenter.heroku.com/articles/getting-started-with-nodejs)
 - [Heroku Node.js Support](https://devcenter.heroku.com/articles/nodejs-support)
