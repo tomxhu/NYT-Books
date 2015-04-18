@@ -5,6 +5,7 @@ var mongoose = require('mongoose'),
 
 var RatingSchema = new Schema({
 	isbn13 : String, 
+	book : String,
 	rating : Number,
 	user : String,
 });

@@ -1,0 +1,46 @@
+<div ng-include="'components/navbar/navbar.html'"></div>
+
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+<div id="loading" ng-class="{active:loading}">
+  <i class="fa fa-gear fa-spin"></i>
+</div>
+
+<div class="container" style="margin-top: 15px;">
+
+  <!-- Error Feedback -->
+  <p class="bg-danger" ng-show="error">{{error}}</p>
+
+  <div class="col-lg-12">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Rating</th>
+        <th>Book Name</th>
+        <th>ISBN13</th>
+        <th>User</th>
+      </tr>
+    </thead>
+      <tbody>
+    	<tr ng-repeat="rating in ratings">
+    		<td>
+          <i class="fa fa-star" ng-show="1 <= rating.rating"></i>
+          <i class="fa fa-star" ng-show="2 <= rating.rating"></i>
+          <i class="fa fa-star" ng-show="3 <= rating.rating"></i>
+          <i class="fa fa-star" ng-show="4 <= rating.rating"></i>
+          <i class="fa fa-star" ng-show="5 <= rating.rating"></i>
+        </td>
+        <td>{{ rating.book }}</td>
+    		<td>{{ rating.isbn13 }}</td>
+    		<td><a href="/profile/{{ rating.user }}">User</a></td>
+    	</tr>
+    </tbody>
+  </table>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+      <p>CS 4550 Final Project</p>
+  </div>
+</footer>

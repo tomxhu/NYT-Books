@@ -82,6 +82,7 @@ angular.module('nytBooksApp')
 
         Ratings.create({
           rating : rating,
+          book : $scope.selectedBook.title,
           isbn13 : $scope.selectedBook.primary_isbn13,
           user : userId,
 
