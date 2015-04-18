@@ -18,7 +18,7 @@
         <h4><b>Email:</b> {{ user.email }}</h4>
       </div>
 
-      <div class="follower-options" ng-hide="user._id == currentUser._id">
+      <div class="follower-options" ng-hide="(user._id == currentUser._id) || !isLoggedIn">
         <div ng-hide="following" class="btn btn-default" ng-click="follow(id, true)"><i class="fa fa-heart"></i> Follow this User</div>
         <div ng-show="following" class="btn btn-default" ng-click="follow(id, false)"><i class="fa fa-heart"></i> Unfollow this User</div>
       </div>

@@ -11,6 +11,9 @@ angular.module('nytBooksApp')
 
     $scope.currentUser = Auth.getCurrentUser();
 
+    // Used to display/not display features 
+    $scope.isLoggedIn = Auth.isLoggedIn();
+
     // Load user information
     $http.get('/api/users/' + $scope.id)
     	.success(function(user){
