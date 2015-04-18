@@ -1,0 +1,6 @@
+img.profile-image {
+	width: 100%;
+	max-width: 200px;
+	margin: 35px auto 20px;
+	display: inherit;
+}
