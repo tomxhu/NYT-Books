@@ -5,7 +5,7 @@ angular.module('nytBooksApp')
   .controller('SettingsCtrl', function ($scope, User, Auth, Ratings) {
     $scope.errors = {};
 
-    var userId = Auth.getCurrentUser()._id;
+    $scope.user = Auth.getCurrentUser();
 
     // to change password from old to new
     $scope.changePassword = function(form) {
@@ -23,22 +23,24 @@ angular.module('nytBooksApp')
       }
 		};
 
-    $scope.addFollower = function (follow) {
-      Auth.addFollower(123).then(function(result){
-        console.log(result);
+    $scope.addFollower = function (id) {
+      Auth.addFollower(id).then(function(result){
+        $scope.user = Auth.getCurrentUser();
+        console.log($scope.user)
       })
     }
 
-    $scope.removeFollower = function (follow) {
-      Auth.removeFollower(123).then(function(result){
-        console.log(result);
+    $scope.removeFollower = function (id) {
+      Auth.removeFollower(id).then(function(result){
+        $scope.user = Auth.getCurrentUser();
+        console.log($scope.user)
       })
     }
 
     // loads ratings for that user to be managed
     $scope.loadRatings = function(){
 
-        var query = { user : userId };
+        var query = { user : $scope.user._id };
 
         Ratings.search(query,function(ratings){
           $scope.ratings = ratings;

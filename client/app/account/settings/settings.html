@@ -1,68 +1,73 @@
 <div ng-include="'components/navbar/navbar.html'"></div>
-
 <!-- Forms to change password -->
 <div class="container auth">
   <div class="row">
     <div class="col-sm-12">
       <h1>Change Password</h1>
-    </div>
-    <div class="col-sm-12">
       <form class="form" name="form" ng-submit="changePassword(form)" novalidate>
-
         <div class="form-group">
           <label>Current Password</label>
-
           <input type="password" name="password" class="form-control" ng-model="user.oldPassword"
-                 mongoose-error/>
+          mongoose-error/>
           <p class="help-block" ng-show="form.password.$error.mongoose">
-              {{ errors.other }}
+            {{ errors.other }}
           </p>
         </div>
-
         <div class="form-group">
           <label>New Password</label>
-
           <input type="password" name="newPassword" class="form-control" ng-model="user.newPassword"
-                 ng-minlength="3"
-                 required/>
+          ng-minlength="3"
+          required/>
           <p class="help-block"
-             ng-show="(form.newPassword.$error.minlength || form.newPassword.$error.required) && (form.newPassword.$dirty || submitted)">
+            ng-show="(form.newPassword.$error.minlength || form.newPassword.$error.required) && (form.newPassword.$dirty || submitted)">
             Password must be at least 3 characters.
           </p>
         </div>
-
         <p class="help-block"> {{ message }} </p>
-
-      <!-- Viewing and deleting from list of ratings -->
-      <div class="col-sm-12">
-        <h1>Manage Ratings</h1>
-      </div>
-
-        <table class="table table-striped">
-          <thead>
-            <tr>
-              <th>Rating</th>
-              <th>Book</th>
-              <th>Delete</th>
-            </tr>
-          </thead>
-            <tbody>
-              <tr ng-repeat="rating in ratings">
-                <td>
-                  <i class="fa fa-star" ng-show="1 <= rating.rating"></i>
-                  <i class="fa fa-star" ng-show="2 <= rating.rating"></i>
-                  <i class="fa fa-star" ng-show="3 <= rating.rating"></i>
-                  <i class="fa fa-star" ng-show="4 <= rating.rating"></i>
-                  <i class="fa fa-star" ng-show="5 <= rating.rating"></i>
-                </td>
-                <td>{{ rating.book }}</td>
-                <td><a ng-click="deleteRating(rating._id)"><i class="fa fa-trash-o"></i></a></td>
-              </tr>
-            </tbody>
-        </table>
-
         <button class="btn btn-lg btn-primary" type="submit">Save changes</button>
       </form>
+
+      <!-- Viewing and deleting from list of ratings -->
+      <h1>Manage Ratings</h1>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th style="min-width: 100px;">Rating</th>
+            <th>Book</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="rating in ratings">
+            <td>
+              <i class="fa fa-star" ng-show="1 <= rating.rating"></i>
+              <i class="fa fa-star" ng-show="2 <= rating.rating"></i>
+              <i class="fa fa-star" ng-show="3 <= rating.rating"></i>
+              <i class="fa fa-star" ng-show="4 <= rating.rating"></i>
+              <i class="fa fa-star" ng-show="5 <= rating.rating"></i>
+            </td>
+            <td>{{ rating.book }}</td>
+            <td><a ng-click="deleteRating(rating._id)"><i class="fa fa-trash-o"></i></a></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- Viewing and deleting from list of following -->
+      <h1>Manage Following</h1>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>User</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="following in user.following">
+            <td>{{ following }}</td>
+            <td><a ng-click="removeFollower(following)"><i class="fa fa-trash-o"></i></a></td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </div>
