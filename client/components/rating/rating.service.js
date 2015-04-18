@@ -31,5 +31,19 @@ angular.module('nytBooksApp')
                  error(status);
              })
        },
+
+       search : function(query, success, error){
+           
+        var url = '/api/ratings/'
+          
+        $http.get(url, query)
+             .success(function(data, status, headers, config) {
+                 success(data)
+             })
+             .error(function(data, status, headers, config) {
+                 console.error(status);
+                 error(status);
+             })
+       },
     };
   });

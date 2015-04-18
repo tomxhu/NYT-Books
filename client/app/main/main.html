@@ -102,8 +102,8 @@
             <p><b>Bestseller's Date:</b> {{ selectedBook.bestsellers_date | date : format : longDate}}</p>
           </div>          
         </div>
-        <hr>
-        <div class="row">
+        <div class="row" ng-show="isLoggedIn">
+          <hr>
           <div class="col-sm-12">
             <h2>Rate this Book</h2>
               <div class="rating">
@@ -114,12 +114,30 @@
         <hr>
         <div class="row">
           <div class="col-sm-12">
-            <h2>Ratings from Users</h2>
-              <div class="rating">
-                <span ng-repeat="score in [3,2,1]">☆</span>
-              </div>
+            <h2>Courses Created</h2>
+            <div ng-controller="RatingsCtrl">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>Rating</th>
+                  <th>User</th>
+                </tr>
+              </thead>
+                <tbody>
+                  <tr ng-repeat="rating in ratings">
+                    <td>
+                      <i class="fa fa-star" ng-show="1 <= rating.rating"></i>
+                      <i class="fa fa-star" ng-show="2 <= rating.rating"></i>
+                      <i class="fa fa-star" ng-show="3 <= rating.rating"></i>
+                      <i class="fa fa-star" ng-show="4 <= rating.rating"></i>
+                      <i class="fa fa-star" ng-show="5 <= rating.rating"></i>
+                    </td>
+                    <td><a ng-click="/profile/{{ rating.user }}">User</a></td>
+                  </tr>
+                </tbody>
+            </table>
+            </div>
           </div>
-        </div>
         <hr>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
