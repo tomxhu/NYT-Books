@@ -125,6 +125,10 @@ hr {
     width: 100%;
 }
 
+.modal-header {
+  height: 50px;
+}
+
 .rating {
   unicode-bidi: bidi-override;
   direction: rtl;

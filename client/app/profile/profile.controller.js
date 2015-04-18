@@ -2,10 +2,15 @@
 
 //  Profile Controller
 angular.module('nytBooksApp')
-  .controller('ProfileCtrl', function ($scope, $http, $stateParams, Ratings, Auth) {
+  .controller('ProfileCtrl', function ($scope, $http, $stateParams, $location, Ratings, Auth) {
   
     $scope.error = null;
+
     $scope.id = $stateParams.id;
+
+    if (!$scope.id){
+      $location.path("/settings")
+    }
 
     $scope.following = false;
 

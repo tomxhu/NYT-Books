@@ -19,12 +19,12 @@
       </div>
       <h1>{{ user.name }}</h1>
       <p>Reviews : <b>{{ ratings.length }}</b></p>
-      <p>Following : <b>{{ user.following.length }}</b></p>
+      <p>Favorited : <b>{{ user.following.length }}</b></p>
     </div>
     <div class="col-md-10">
       <div class="panel panel-info">
         <div class="panel-heading">
-          <b>Reviews written by {{ user.name }} ({{ ratings.length }}) :</b>
+          <b>{{ ratings.length }} Reviews written by {{ user.name }}</b>
         </div>
         <div class="panel-body">
           <table class="table table-striped">
@@ -53,6 +53,29 @@
           </table>
         </div>
       </div>
+  <div class="panel panel-info">
+    <div class="panel-heading">
+      <b>Following {{ user.following.length }} Users</b>
+    </div>
+    <div class="panel-body">
+      <!-- Viewing and deleting from list of following -->
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>User</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-hide="user.following.length"><td>No users to show</td><td></td></tr>
+          <tr ng-repeat="following in user.following">
+            <td><a href="profile/">{{ following }}</a></td>
+            <td><a ng-click="removeFollower(following)"><i class="fa fa-trash-o"></i></a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
     </div>
   </div>
 </div>

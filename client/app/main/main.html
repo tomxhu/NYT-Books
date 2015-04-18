@@ -75,16 +75,15 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <i class="text-muted fa fa-book">
-          <h4 class="modal-title" id="myModalLabel">{{ selectedBook.title }}</h4></i>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>          
         </div>
         <div class="modal-body" id="book-info">
-          <div class="row">
+          <div class="row" style="margin: 20px;">
             <div class="col-sm-4">
               <img ng-src="{{selectedBook.book_image}}" alt="{{selectedBook.book_image}}">
             </div>
             <div class="col-sm-8">
+              <h4 style="margin-top: 0;">{{ selectedBook.title }}</h4>
               <p>{{ selectedBook.description }}</p>
               <p><b>By:</b> {{ selectedBook.author }}</p>
               <p><b>ISBN:</b> {{ selectedBook.primary_isbn13 }}</p>
@@ -97,9 +96,15 @@
           <div class="row" ng-show="isLoggedIn">
             <hr>
             <div class="col-sm-12">
-              <h2>Rate this Book</h2>
-              <div class="rating">
-                <span ng-repeat="score in [5,4,3,2,1]" ng-click="rate(score)" ng-class="{'active' : score <= rating}">☆</span>
+              <div class="panel panel-info">
+                <div class="panel-heading">
+                  <b>Rate this Book</b>
+                </div>
+                <div class="panel-body">
+                  <div class="rating">
+                    <span ng-repeat="score in [5,4,3,2,1]" ng-click="rate(score)" ng-class="{'active' : score <= rating}">☆</span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -107,29 +112,35 @@
           <!-- View ratings for that book -->
           <div class="row">
             <div class="col-sm-12">
-              <h2>Ratings</h2>
-              <div>
-                <table class="table table-striped">
-                  <thead>
-                    <tr>
-                      <th>Rating</th>
-                      <th>User</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr ng-repeat="rating in ratings">
-                      <td>
-                        <i class="fa fa-star" ng-show="1 <= rating.rating"></i>
-                        <i class="fa fa-star" ng-show="2 <= rating.rating"></i>
-                        <i class="fa fa-star" ng-show="3 <= rating.rating"></i>
-                        <i class="fa fa-star" ng-show="4 <= rating.rating"></i>
-                        <i class="fa fa-star" ng-show="5 <= rating.rating"></i>
-                      </td>
-                      <td><a ng-click="goToProfile(rating.user)"> {{ rating.userName }}</a></td>
-                    </tr>
-                  </tbody>
-                </table>
+              <div class="panel panel-info">
+                <div class="panel-heading">
+                  <b>All Ratings from Users</b>
+                </div>
+                <div class="panel-body">
+                  
+                  <table class="table table-striped">
+                    <thead>
+                      <tr>
+                        <th>Rating</th>
+                        <th>User</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr ng-repeat="rating in ratings">
+                        <td>
+                          <i class="fa fa-star" ng-show="1 <= rating.rating"></i>
+                          <i class="fa fa-star" ng-show="2 <= rating.rating"></i>
+                          <i class="fa fa-star" ng-show="3 <= rating.rating"></i>
+                          <i class="fa fa-star" ng-show="4 <= rating.rating"></i>
+                          <i class="fa fa-star" ng-show="5 <= rating.rating"></i>
+                        </td>
+                        <td><a ng-click="goToProfile(rating.user)"> {{ rating.userName }}</a></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
               </div>
+              
             </div>
             <hr>
             <div class="modal-footer">
