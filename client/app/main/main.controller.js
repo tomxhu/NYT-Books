@@ -38,13 +38,18 @@ angular.module('nytBooksApp')
       $scope.selectedBook = $scope.books[index]
       console.log($scope.selectedBook);
 
-      var query = { isbn13 : $scope.selectedBook.primary_isbn13};
-
-      Ratings.search(query,function(ratings){
-        $scope.ratings = ratings;
-      })
+      $scope.loadRatings();
       
       $('#myModal').modal({show : true});
+    }
+
+    $scope.loadRatings = function(){
+
+        var query = { isbn13 : $scope.selectedBook.primary_isbn13};
+
+        Ratings.search(query,function(ratings){
+          $scope.ratings = ratings;
+        })
     }
 
     // Load books
@@ -92,7 +97,13 @@ angular.module('nytBooksApp')
           isbn13 : $scope.selectedBook.primary_isbn13,
           user : userId,
 
-        }, function(){}, function(){})
+        }, function(){
+
+          $scope.loadRatings();
+
+
+
+        }, function(){})
       }
       
     }
