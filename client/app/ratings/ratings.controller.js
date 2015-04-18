@@ -7,6 +7,8 @@ angular.module('nytBooksApp')
     $scope.ratings = [];
     $scope.users = [];
 
+    $scope.order = "-rating";
+
     Ratings.get(function(ratings){
     	$scope.ratings = ratings;
     })
