@@ -20,6 +20,30 @@
   	<img ng-src'user.profileImg'>
 
   </div>
+
+  <div class="col-sm-12">
+      <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Rating</th>
+              <th>Delete</th>
+            </tr>
+          </thead>
+            <tbody>
+              <tr ng-repeat="rating in ratings">
+                <td>
+                  <i class="fa fa-star" ng-show="1 <= rating.rating"></i>
+                  <i class="fa fa-star" ng-show="2 <= rating.rating"></i>
+                  <i class="fa fa-star" ng-show="3 <= rating.rating"></i>
+                  <i class="fa fa-star" ng-show="4 <= rating.rating"></i>
+                  <i class="fa fa-star" ng-show="5 <= rating.rating"></i>
+                </td>
+                <td><a ng-click="deleteRating(rating._id)"><i class="fa fa-trash-o"></i></a></td>
+              </tr>
+            </tbody>
+        </table>
+
+    </div>
 </div>
 
 <footer class="footer">

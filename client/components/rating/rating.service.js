@@ -32,6 +32,20 @@ angular.module('nytBooksApp')
              })
        },
 
+      delete : function(id, success, error){
+           
+        var url = '/api/ratings/' + id;
+          
+        $http.delete(url)
+             .success(function(data, status, headers, config) {
+                 success(data)
+             })
+             .error(function(data, status, headers, config) {
+                 console.error(status);
+                 error(status);
+             })
+       },
+
        search : function(query, success, error){
            
         var url = '/api/ratings/search'

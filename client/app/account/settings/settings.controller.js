@@ -1,8 +1,10 @@
 'use strict';
 
 angular.module('nytBooksApp')
-  .controller('SettingsCtrl', function ($scope, User, Auth) {
+  .controller('SettingsCtrl', function ($scope, User, Auth, Ratings) {
     $scope.errors = {};
+
+    var userId = Auth.getCurrentUser()._id;
 
     $scope.changePassword = function(form) {
       $scope.submitted = true;
@@ -18,4 +20,24 @@ angular.module('nytBooksApp')
         });
       }
 		};
+
+    $scope.loadRatings = function(){
+
+        var query = { user : userId };
+
+        Ratings.search(query,function(ratings){
+          $scope.ratings = ratings;
+        })
+    }
+
+    $scope.loadRatings();
+
+    $scope.deleteRating = function(id){
+      Ratings.delete(id, function(){
+        $scope.loadRatings();
+      }, function(){
+
+      })
+    };
+
   });
