@@ -29,4 +29,12 @@ angular.module('nytBooksApp')
 
     $scope.loadRatings();
 
+    // ability to delete a rating 
+    $scope.deleteRating = function(id){
+      Ratings.delete(id, function(){
+        $scope.loadRatings();
+      }, function(){
+      })
+    };
+
   });
