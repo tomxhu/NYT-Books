@@ -34,9 +34,17 @@ angular.module('nytBooksApp')
 
        search : function(query, success, error){
            
-        var url = '/api/ratings/'
+        var url = '/api/ratings/search'
+
+        if (query.isbn13) {
+          url += '?isbn13=' + query.isbn13
+        }
+
+        if (query.userId) {
+          url += '?userId=' + query.userId
+        }
           
-        $http.get(url, query)
+        $http.get(url)
              .success(function(data, status, headers, config) {
                  success(data)
              })
@@ -45,5 +53,6 @@ angular.module('nytBooksApp')
                  error(status);
              })
        },
+      
     };
   });

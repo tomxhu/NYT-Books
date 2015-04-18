@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('nytBooksApp')
-.controller('MainCtrl', function ($scope, $http, $timeout, BestSellers, Ratings, Auth) {
+.controller('MainCtrl', function ($scope, $http, $timeout, $location, BestSellers, Ratings, Auth) {
 
     $scope.error = null,
     $scope.loading = true;
@@ -37,6 +37,12 @@ angular.module('nytBooksApp')
 
       $scope.selectedBook = $scope.books[index]
       console.log($scope.selectedBook);
+
+      var query = { isbn13 : $scope.selectedBook.primary_isbn13};
+
+      Ratings.search(query,function(ratings){
+        $scope.ratings = ratings;
+      })
       
       $('#myModal').modal({show : true});
     }
@@ -89,6 +95,11 @@ angular.module('nytBooksApp')
         }, function(){}, function(){})
       }
       
+    }
+
+    $scope.goToProfile = function(userID){
+      $('#myModal').modal({show : false});
+      $location.path("/profile/" + userID)
     }
 
     BestSellers.categories(function(resp){

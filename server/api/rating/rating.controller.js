@@ -2,6 +2,8 @@
 
 var _ = require('lodash');
 var Rating = require('./rating.model');
+var url  = require('url');
+
 
 // Get list of ratings
 exports.index = function(req, res) {
@@ -14,9 +16,12 @@ exports.index = function(req, res) {
 // Search for
 exports.search = function(req, res) {
 
-  console.log(req.body);
+  var url_parts = url.parse(req.url, true);
+  var query = url_parts.query;
+  
+  console.log(query);
 
-  var query = req.body.query;
+  // var query = req.body.query;
 
   Rating.find(query, function (err, ratings) {
     if(err) { return handleError(res, err); }
