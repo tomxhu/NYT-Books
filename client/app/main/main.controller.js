@@ -60,26 +60,33 @@ angular.module('nytBooksApp')
         if ($scope.books.length < 1){
           $scope.error = "No Result Found."
         }
-
         
       }, function(resp){
         $scope.error = resp;
         $scope.loading = false;
       })
-      
     }
 
     // Give a rating to a book
     $scope.rate = function(rating){
 
       $scope.rating = rating;
-      
-      console.log(rating);
 
-      Ratings.create({
-        rating : rating,
-        isbn13 : $scope.selectedBook.primary_isbn13
-      }, function(){}, function(){})
+      var userId = Auth.getCurrentUser()._id;
+
+      if (!userId) {
+        alert("login");
+      } else {
+        
+        console.log(rating);
+
+        Ratings.create({
+          rating : rating,
+          isbn13 : $scope.selectedBook.primary_isbn13,
+          user : userId,
+
+        }, function(){}, function(){})
+      }
       
     }
 

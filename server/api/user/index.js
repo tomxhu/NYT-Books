@@ -15,7 +15,6 @@ router.put('/:id/password', auth.isAuthenticated(), controller.changePassword);
 router.get('/:id', controller.show);
 router.post('/', controller.create);
 
-router.get('/:id/profileIMG', auth.isAuthenticated(), controller.profileIMG);
-
+router.get('/:id/profileImg', auth.isAuthenticated(), controller.profileImg);
 
 module.exports = router;

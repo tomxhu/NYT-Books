@@ -7,30 +7,29 @@ angular.module('nytBooksApp')
 
     	create : function(rating, success, error){
     		   
-    		var url = '/api/rating/'
+    		var url = '/api/ratings/'
       		
   			$http.post(url, rating)
   			     .success(function(data, status, headers, config) {
-
   			         success(data)
   			     })
   			     .error(function(data, status, headers, config) {
   			         console.error(status);
-  	    	     error(status);
+  	    	       error(status);
   			     })
 			 },
-
-      // categories :  function(success, error){
-        
-      //   // Get list of available categories
-      //   $http.get('/api/nyt/categories')
-      //     .success(function(data, status, headers, config) {
-      //         //what do I do here?
-      //         success(data.results);
-      //     })
-      //     .error(function(data, status, headers, config) {
-      //         error(status)
-      //     });
-      //   },
+      get : function(success, error){
+           
+        var url = '/api/ratings/'
+          
+        $http.get(url)
+             .success(function(data, status, headers, config) {
+                 success(data)
+             })
+             .error(function(data, status, headers, config) {
+                 console.error(status);
+                 error(status);
+             })
+       },
     };
   });

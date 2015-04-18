@@ -6,6 +6,7 @@ var mongoose = require('mongoose'),
 var RatingSchema = new Schema({
 	isbn13 : String, 
 	rating : Number,
+	user : String,
 });
 
 module.exports = mongoose.model('Rating', RatingSchema);
