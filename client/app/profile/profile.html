@@ -53,33 +53,32 @@
           </table>
         </div>
       </div>
-  <div class="panel panel-info">
-    <div class="panel-heading">
-      <b>Following {{ user.following.length }} Users</b>
-    </div>
-    <div class="panel-body">
-      <!-- Viewing and deleting from list of following -->
-      <table class="table table-striped">
-        <thead>
-          <tr>
-            <th>User</th>
-            <th>Delete</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr ng-hide="user.following.length"><td>No users to show</td><td></td></tr>
-          <tr ng-repeat="following in user.following">
-            <td><a href="profile/">{{ following }}</a></td>
-            <td><a ng-click="removeFollower(following)"><i class="fa fa-trash-o"></i></a></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
+      <div class="panel panel-info">
+        <div class="panel-heading">
+          <b>Following {{ user.following.length }} Users</b>
+        </div>
+        <div class="panel-body">
+          <!-- Viewing and deleting from list of following -->
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>User</th>
+                <th>Delete</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-hide="user.following.length"><td>No users to show</td><td></td></tr>
+              <tr ng-repeat="following in user.following">
+                <td><a href="profile/">{{ following }}</a></td>
+                <td><a ng-click="removeFollower(following)"><i class="fa fa-trash-o"></i></a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
   </div>
 </div>
-
 <footer class="footer">
   <div class="container">
     <p>CS 4550 Final Project</p>
