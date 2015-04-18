@@ -6,12 +6,16 @@ angular.module('nytBooksApp')
     $scope.errors = {};
 
     $scope.authors = [
-    "",
-    "",
-    "",
+      "/images/jk-rowling.jpg",
+      "/images/john-green.jpg",
+      "/images/mark-twain.jpg",
+      "/images/shakespeare.jpg",
     ]
 
     $scope.register = function(form) {
+
+      console.log($scope.user)
+      
       $scope.submitted = true;
 
       if(form.$valid) {

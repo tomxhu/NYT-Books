@@ -57,9 +57,11 @@
         <div class="form-group" ng-class="{ 'has-success': form.profileImg.$valid && submitted,
                                             'has-error': form.profileImg.$invalid && submitted }">
           <label>Profile Image</label>
-
-          <div ng-repeat="image in authors" class="image" ng-class="{'active' : user.image == image}">
-            <img ng-src="image" ng-click="user.image = image;">
+  
+          <div class="profile-image">
+            <div ng-repeat="image in authors" class="image" ng-class="{'active' : user.profileImg == image}">
+              <img ng-src="{{image}}" ng-click="user.profileImg = image;">
+            </div>
           </div>
 
           <p class="help-block" ng-show="form.email.$error.mongoose">

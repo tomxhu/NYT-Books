@@ -1,10 +1,19 @@
-.image {
-	max-width: 200px;
-	max-height: 200px;
-	width: 100%;
+.profile-image {
+	float: left;
+}
 
+.image {
+  max-width: 100px;
+  max-height: 100px;
+  width: 100%;
+  float: left;
+  margin: 10px;
 }
 
 .image.active {
 	border: 2px solid black;
+}
+
+.image img {
+	width: 100%;
 }
