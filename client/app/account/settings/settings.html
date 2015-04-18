@@ -42,6 +42,7 @@
           <thead>
             <tr>
               <th>Rating</th>
+              <th>Book</th>
               <th>Delete</th>
             </tr>
           </thead>
@@ -54,6 +55,7 @@
                   <i class="fa fa-star" ng-show="4 <= rating.rating"></i>
                   <i class="fa fa-star" ng-show="5 <= rating.rating"></i>
                 </td>
+                <td>{{ rating.book }}</td>
                 <td><a ng-click="deleteRating(rating._id)"><i class="fa fa-trash-o"></i></a></td>
               </tr>
             </tbody>
