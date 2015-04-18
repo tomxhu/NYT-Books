@@ -14,7 +14,7 @@
   <!-- Name and profile picture -->
   <div class="row">
     <div class="col-md-4">
-      <img ng-src="{{user.profileImg}}" style="width: 100%;" />
+      <img ng-src="{{ user.profileImg }}" style="width: 100%;" />
     </div>
     <div class="col-md-6">
       <h2>{{ user.name }}</h2>
@@ -26,12 +26,15 @@
       <table class="table table-striped">
           <thead>
             <tr>
+              <th>Book Title</th>
               <th>Rating</th>
-              <th>Delete</th>
+              <th>ISBN</th>
+              <th class="pull-right">Delete</th>
             </tr>
           </thead>
             <tbody>
               <tr ng-repeat="rating in ratings">
+                <td>{{ rating.book }}</td>
                 <td>
                   <i class="fa fa-star" ng-show="1 <= rating.rating"></i>
                   <i class="fa fa-star" ng-show="2 <= rating.rating"></i>
@@ -39,7 +42,8 @@
                   <i class="fa fa-star" ng-show="4 <= rating.rating"></i>
                   <i class="fa fa-star" ng-show="5 <= rating.rating"></i>
                 </td>
-                <td><a ng-click="deleteRating(rating._id)"><i class="fa fa-trash-o"></i></a></td>
+                <td>{{ rating.isbn13 }}</td>
+                <td><a ng-click="deleteRating(rating._id)"><i class="fa fa-trash-o pull-right"></i></a></td>
               </tr>
             </tbody>
         </table>
