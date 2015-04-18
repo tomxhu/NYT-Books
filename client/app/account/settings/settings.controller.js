@@ -23,6 +23,18 @@ angular.module('nytBooksApp')
       }
 		};
 
+    $scope.addFollower = function (follow) {
+      Auth.addFollower(123).then(function(result){
+        console.log(result);
+      })
+    }
+
+    $scope.removeFollower = function (follow) {
+      Auth.removeFollower(123).then(function(result){
+        console.log(result);
+      })
+    }
+
     // loads ratings for that user to be managed
     $scope.loadRatings = function(){
 

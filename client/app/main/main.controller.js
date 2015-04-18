@@ -24,9 +24,6 @@ angular.module('nytBooksApp')
     // Used to display/not display features 
     $scope.isLoggedIn = Auth.isLoggedIn();
 
-    // Lists favorites for a user
-    $scope.favorites = $scope.isLoggedIn ? Auth.getFavorites() : []
-
     $scope.selected = -1;
 
     // Select a specific book

@@ -13,6 +13,7 @@ var UserSchema = new Schema({
   },
   profileImg: String,
   hashedPassword: String,
+  following: Array,
   provider: String,
   salt: String
 });

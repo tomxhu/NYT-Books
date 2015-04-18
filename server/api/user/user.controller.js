@@ -4,6 +4,7 @@ var User = require('./user.model');
 var passport = require('passport');
 var config = require('../../config/environment');
 var jwt = require('jsonwebtoken');
+var _ = require('underscore');
 
 var validationError = function(res, err) {
   return res.json(422, err);
@@ -101,6 +102,48 @@ exports.profileImg = function (req, res, next) {
     if (err) return next(err);
     if (!user) return res.json(401);
     res.json(user.profileImg);
+  });
+}
+
+exports.addFollower = function (req, res, next) {
+  var userId = req.user._id;
+  var toFollow = req.body.follow
+  User.findOne({
+    _id: userId
+  }, '-salt -hashedPassword', function(err, user) { // don't ever give out the password or salt
+    if (err) return next(err);
+    if (!user) return res.json(401);
+    if (_.indexOf(user.following, toFollow) < 0) {
+      user.following.push(toFollow);
+      user.save(function(err) {
+        if (err) return validationError(res, err);
+        res.send(200);
+      });
+    } else {
+      res.send(200);
+    }
+
+  });
+}
+
+exports.removeFollower = function (req, res, next) {
+  var userId = req.user._id;
+  var toUnfollow = req.body.follow
+  User.findOne({
+    _id: userId
+  }, '-salt -hashedPassword', function(err, user) { // don't ever give out the password or salt
+    if (err) return next(err);
+    if (!user) return res.json(401);
+    if (_.indexOf(user.following, toUnfollow) >= 0) {
+      user.following = _.without(user.follow, toUnfollow);
+      user.save(function(err) {
+        if (err) return validationError(res, err);
+        res.send(200);
+      });
+    } else {
+      res.send(200);
+    }
+
   });
 }
 

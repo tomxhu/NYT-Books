@@ -12,16 +12,16 @@ angular.module('nytBooksApp')
           controller:'password'
         }
       },
-      getFavorites: {
-        method: 'GET',
+      addFollower: {
+        method: 'POST',
         params: {
-          controller:'favorites'
+          controller:'addFollower'
         }
       },
-      getReviews: {
-        method: 'GET',
+      removeFollower: {
+        method: 'POST',
         params: {
-          controller:'reviews'
+          controller:'removeFollower'
         }
       },
       get: {
