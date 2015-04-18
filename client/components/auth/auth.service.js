@@ -143,11 +143,27 @@ angular.module('nytBooksApp')
         return $cookieStore.get('token');
       },
 
-      getFavorites: function() {
-        return currentUser.booksFavorited;
+      addFollower: function(follow, callback) {
+        var cb = callback || angular.noop;
+
+        return User.addFollower({ id: currentUser._id }, {
+          follow: follow
+        }, function(user) {
+          return cb(user);
+        }, function(err) {
+          return cb(err);
+        }).$promise;
       },
-      getReviews: function() {
-        return currentUser.reviewsWritten;
+      removeFollower: function(follow, callback) {
+        var cb = callback || angular.noop;
+
+        return User.removeFollower({ id: currentUser._id }, {
+          follow: follow
+        }, function(user) {
+          return cb(user);
+        }, function(err) {
+          return cb(err);
+        }).$promise;
       }
     };
   });

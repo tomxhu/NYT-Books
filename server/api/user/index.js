@@ -16,5 +16,6 @@ router.get('/:id', controller.show);
 router.post('/', controller.create);
 
 router.get('/:id/profileImg', auth.isAuthenticated(), controller.profileImg);
-
+router.post('/:id/addFollower', auth.isAuthenticated(), controller.addFollower);
+router.post('/:id/removeFollower', auth.isAuthenticated(), controller.removeFollower);
 module.exports = router;
