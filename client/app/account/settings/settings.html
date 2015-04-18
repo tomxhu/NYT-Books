@@ -63,7 +63,7 @@
         </thead>
         <tbody>
           <tr ng-repeat="following in user.following">
-            <td>{{ following }}</td>
+            <td><a href="profile/">{{ following }}</a></td>
             <td><a ng-click="removeFollower(following)"><i class="fa fa-trash-o"></i></a></td>
           </tr>
         </tbody>

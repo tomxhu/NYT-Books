@@ -12,7 +12,10 @@
     <div class="col-md-4">
       <h1>{{ user.name }}</h1>
       <div class="profile-picture">
-        <img class= "pull-left" ng-src="{{ user.profileImg }}" />
+        <img ng-src="{{ user.profileImg }}" />
+      </div>
+      <div>
+        <h4><b>Email:</b> {{ user.email }}</h4>
       </div>
 
       <div class="follower-options" ng-hide="user._id == currentUser._id">

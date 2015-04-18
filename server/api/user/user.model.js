@@ -41,6 +41,7 @@ UserSchema
       'profileImg': this.profileImg,
       'following' : this.following,
       '_id' : this._id,
+      'email' : this.email,
     };
   });
 
