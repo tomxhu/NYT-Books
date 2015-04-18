@@ -110,7 +110,7 @@ angular.module('nytBooksApp')
 
     // links to profile of user who submitted rating
     $scope.goToProfile = function(userID){
-      $('#myModal').modal({show : false});
+      $('#myModal').modal('hide');
       $location.path("/profile/" + userID)
     }
 
@@ -121,5 +121,6 @@ angular.module('nytBooksApp')
     })
 
     $scope.loadBooks($scope.query);
+
 
 })
