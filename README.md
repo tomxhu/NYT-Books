@@ -1,10 +1,12 @@
 # New York Times Books
 
-> Web App for searching the New York Times best sellter list. 
+> Web App for searching the New York Times Best Sellers List. 
 
 # Demo
 
 App can be viewed online at: http://nyt-books.herokuapp.com/ 
+
+Video demo available at: https://www.youtube.com/watch?v=jF4i1K63SDQ 
 
 # Development
 
