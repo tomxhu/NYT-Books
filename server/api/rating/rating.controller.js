@@ -11,6 +11,19 @@ exports.index = function(req, res) {
   });
 };
 
+// Search for
+exports.search = function(req, res) {
+
+  console.log(req.body);
+
+  var query = req.body.query;
+
+  Rating.find(query, function (err, ratings) {
+    if(err) { return handleError(res, err); }
+    return res.json(200, ratings);
+  });
+};
+
 // Get a single rating
 exports.show = function(req, res) {
   Rating.findById(req.params.id, function (err, rating) {
