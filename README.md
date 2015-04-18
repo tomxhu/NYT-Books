@@ -5,7 +5,7 @@
 ## Demo
 
 [Play with the Demo](http://nyt-books.herokuapp.com/ ) or
-[Watch the Video Walkthrough](https://www.youtube.com/watch?v=jF4i1K63SDQ )
+[Watch the Video Walkthrough](https://www.youtube.com/watch?v=25C6YvSYifw)
 
 ## Features
 
