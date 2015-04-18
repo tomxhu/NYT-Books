@@ -33,7 +33,7 @@
                 <th>Book Title</th>
                 <th>Rating</th>
                 <th>ISBN</th>
-                <th>Delete</th>
+                <th ng-show="user._id == currentUser._id">Delete</th>
               </tr>
             </thead>
             <tbody>
@@ -47,7 +47,7 @@
                   <i class="fa fa-star" ng-show="5 <= rating.rating"></i>
                 </td>
                 <td>{{ rating.isbn13 }}</td>
-                <td><a ng-click="deleteRating(rating._id)"><i class="fa fa-trash-o pull-right"></i></a></td>
+                <td ng-show="user._id == currentUser._id"><a ng-click="deleteRating(rating._id)"><i class="fa fa-trash-o pull-right"></i></a></td>
               </tr>
             </tbody>
           </table>
