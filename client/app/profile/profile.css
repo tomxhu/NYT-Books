@@ -6,6 +6,7 @@
 .profile-picture img {
 	margin: 0 auto;
 	display: block;
+	width: 100%;
 }
 
 .follower-options .btn {

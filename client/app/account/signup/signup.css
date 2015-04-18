@@ -3,17 +3,19 @@
 }
 
 .image {
-  max-width: 100px;
-  max-height: 100px;
-  width: 100%;
-  float: left;
-  margin: 10px;
+	margin-top: 10px;
+	cursor: pointer;
 }
 
-.image.active {
-	border: 2px solid black;
+.image.active img{
+	border: 3px solid rgb(99, 99, 124);
 }
 
 .image img {
+	width: 100%;
+}
+
+.signup {
+	margin-top: 30px;
 	width: 100%;
 }

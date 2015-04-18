@@ -47,8 +47,11 @@
 
 .container.auth {
     max-width: 450px;
-    border: 2px solid #eee;
     padding: 20px 50px;
     margin-top: 60px;
     padding-bottom: 40px;
+}
+
+.container.auth.border {
+    border: 2px solid #eee;
 }

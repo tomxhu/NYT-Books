@@ -1,13 +1,20 @@
 <div ng-include="'components/navbar/navbar.html'"></div>
 <!-- Forms to change password -->
 <div class="container auth">
-  <div class="row">
-    <div class="col-sm-12">
-      <h1>Account Settings</h1>
-      <br>
+  <div class="panel panel-info">
+    <div class="panel-heading">
+      <b>Account Settings</b>
+    </div>
+    <div class="panel-body">
       <p>Email : <b>{{ user.email }}</b></p>
       <p>Name :  <b>{{ user.name  }}</b></p>
-      <h3>Change Password</h3>
+    </div>
+  </div>
+  <div class="panel panel-info">
+    <div class="panel-heading">
+      <b>Change Password</b>
+    </div>
+    <div class="panel-body">
       <form class="form" name="form" ng-submit="changePassword(form)" novalidate>
         <div class="form-group">
           <label>Current Password</label>
@@ -30,9 +37,14 @@
         <p class="help-block"> {{ message }} </p>
         <button class="btn btn-lg btn-primary" type="submit">Save changes</button>
       </form>
-
+    </div>
+  </div>
+  <div class="panel panel-info">
+    <div class="panel-heading">
+      <b>Manage Ratings</b>
+    </div>
+    <div class="panel-body">
       <!-- Viewing and deleting from list of ratings -->
-      <h3>Manage Ratings</h3>
       <table class="table table-striped">
         <thead>
           <tr>
@@ -42,7 +54,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr ng-hide="ratings.length"><td>No ratings to show</td></tr>
+          <tr ng-hide="ratings.length"><td>No ratings to show</td><td></td><td></td></tr>
           <tr ng-repeat="rating in ratings">
             <td>
               <i class="fa fa-star" ng-show="1 <= rating.rating"></i>
@@ -56,9 +68,14 @@
           </tr>
         </tbody>
       </table>
-
+    </div>
+  </div>
+  <div class="panel panel-info">
+    <div class="panel-heading">
+      <b>Manage Following</b>
+    </div>
+    <div class="panel-body">
       <!-- Viewing and deleting from list of following -->
-      <h3>Manage Following</h3>
       <table class="table table-striped">
         <thead>
           <tr>
@@ -67,7 +84,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr ng-hide="user.following.length"><td>No users to show</td></tr>
+          <tr ng-hide="user.following.length"><td>No users to show</td><td></td></tr>
           <tr ng-repeat="following in user.following">
             <td><a href="profile/">{{ following }}</a></td>
             <td><a ng-click="removeFollower(following)"><i class="fa fa-trash-o"></i></a></td>
