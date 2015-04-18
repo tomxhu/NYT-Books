@@ -38,7 +38,7 @@ exports.show = function(req, res) {
 
 // Creates a new rating in the DB.
 exports.create = function(req, res) {
-  Rating.find({user: req.body.user}, function (err, ratings){
+  Rating.find({user: req.body.user, isbn13: req.body.isbn13}, function (err, ratings){
 
     if (!ratings.length) {
       Rating.create(req.body, function(err, rating) {
