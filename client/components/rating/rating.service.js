@@ -54,8 +54,8 @@ angular.module('nytBooksApp')
           url += '?isbn13=' + query.isbn13
         }
 
-        if (query.userId) {
-          url += '?userId=' + query.userId
+        if (query.user) {
+          url += '?user=' + query.user
         }
           
         $http.get(url)

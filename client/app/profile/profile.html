@@ -10,11 +10,10 @@
   <!-- Name and profile picture -->
   <div class="row" style="margin-bottom: 60px;">
     <div class="col-md-4">
+      <h1>{{ user.name }}</h1>
       <div class="profile-picture">
-        <img ng-src="{{ user.profileImg }}" />
+        <img class= "pull-left" ng-src="{{ user.profileImg }}" />
       </div>
-      
-      <h2>{{ user.name }}</h2>
 
       <div class="follower-options" ng-hide="user._id == currentUser._id">
         <div ng-hide="following" class="btn btn-default" ng-click="follow(id, true)"><i class="fa fa-heart"></i> Follow this User</div>
