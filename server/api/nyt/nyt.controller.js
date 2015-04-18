@@ -58,9 +58,6 @@ exports.categories = function(req, res) {
     // Collect results
     var body = ''
 
-    // Console status
-    
-
     // Accumulate data response from
     // third party API
     response.on('data', function (chunk) {
@@ -69,8 +66,6 @@ exports.categories = function(req, res) {
 
     response.on('end', function () {
         console.log('\nGET /api/nyt/categories');
-
-        // if(err) { return handleError(res, err); }
 
         return res.json(200, JSON.parse(body));
     });

@@ -1,5 +1,6 @@
 'use strict';
 
+// Main Controller
 angular.module('nytBooksApp')
 .controller('MainCtrl', function ($scope, $http, $timeout, $location, BestSellers, Ratings, Auth) {
 
@@ -20,11 +21,11 @@ angular.module('nytBooksApp')
     // List of Best Sellers
     $scope.books = [];
 
+    // Used to display/not display features 
     $scope.isLoggedIn = Auth.isLoggedIn();
 
+    // Lists favorites for a user
     $scope.favorites = $scope.isLoggedIn ? Auth.getFavorites() : []
-    console.log($scope.isLoggedIn);
-    console.log($scope.favorites);
 
     $scope.selected = -1;
 
@@ -43,6 +44,7 @@ angular.module('nytBooksApp')
       $('#myModal').modal({show : true});
     }
 
+    // Loads ratings for selected book
     $scope.loadRatings = function(){
 
         var query = { isbn13 : $scope.selectedBook.primary_isbn13};
@@ -52,7 +54,7 @@ angular.module('nytBooksApp')
         })
     }
 
-    // Load books
+    // Load all books matching the search query
     $scope.loadBooks = function(query){
 
       $scope.error = null;
@@ -101,13 +103,11 @@ angular.module('nytBooksApp')
 
           $scope.loadRatings();
 
-
-
         }, function(){})
       }
-      
     }
 
+    // links to profile of user who submitted rating
     $scope.goToProfile = function(userID){
       $('#myModal').modal({show : false});
       $location.path("/profile/" + userID)

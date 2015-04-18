@@ -1,5 +1,6 @@
 'use strict';
 
+// Login Controller
 angular.module('nytBooksApp')
   .controller('LoginCtrl', function ($scope, Auth, $location) {
     $scope.user = {};

@@ -1,5 +1,6 @@
 'use strict';
 
+// Router for homepage
 var express = require('express');
 var controller = require('./nyt.controller');
 

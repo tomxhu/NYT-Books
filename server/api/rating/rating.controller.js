@@ -13,15 +13,13 @@ exports.index = function(req, res) {
   });
 };
 
-// Search for
+// Search for user ratings
 exports.search = function(req, res) {
 
   var url_parts = url.parse(req.url, true);
   var query = url_parts.query;
   
   console.log(query);
-
-  // var query = req.body.query;
 
   Rating.find(query, function (err, ratings) {
     if(err) { return handleError(res, err); }

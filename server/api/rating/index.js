@@ -1,5 +1,6 @@
 'use strict';
 
+// Routes for ratings
 var express = require('express');
 var controller = require('./rating.controller');
 

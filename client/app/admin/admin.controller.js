@@ -1,5 +1,6 @@
 'use strict';
 
+// Admin Controller
 angular.module('nytBooksApp')
   .controller('AdminCtrl', function ($scope, $http, Auth, User) {
 

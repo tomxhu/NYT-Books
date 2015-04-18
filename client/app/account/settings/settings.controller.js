@@ -1,11 +1,13 @@
 'use strict';
 
+// Settings Controller 
 angular.module('nytBooksApp')
   .controller('SettingsCtrl', function ($scope, User, Auth, Ratings) {
     $scope.errors = {};
 
     var userId = Auth.getCurrentUser()._id;
 
+    // to change password from old to new
     $scope.changePassword = function(form) {
       $scope.submitted = true;
       if(form.$valid) {
@@ -21,6 +23,7 @@ angular.module('nytBooksApp')
       }
 		};
 
+    // loads ratings for that user to be managed
     $scope.loadRatings = function(){
 
         var query = { user : userId };
@@ -32,12 +35,11 @@ angular.module('nytBooksApp')
 
     $scope.loadRatings();
 
+    // ability to delete a rating 
     $scope.deleteRating = function(id){
       Ratings.delete(id, function(){
         $scope.loadRatings();
       }, function(){
-
       })
     };
-
   });

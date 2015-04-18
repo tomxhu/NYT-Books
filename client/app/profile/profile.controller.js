@@ -1,5 +1,6 @@
 'use strict';
 
+//  Profile Controller
 angular.module('nytBooksApp')
   .controller('ProfileCtrl', function ($scope, $http, $stateParams, Ratings) {
     
@@ -7,6 +8,7 @@ angular.module('nytBooksApp')
 
     var id = $stateParams.id;
 
+    // Load user information
     $http.get('/api/users/' + id)
     	.success(function(user){
     		$scope.user = user;
@@ -15,7 +17,7 @@ angular.module('nytBooksApp')
     		$scope.error = "Error loading user";
     	})
 
-
+    // Load user ratings
     $scope.loadRatings = function(){
 
         var query = { user : id };
