@@ -58,12 +58,14 @@
                                             'has-error': form.profileImg.$invalid && submitted }">
           <label>Profile Image</label>
 
-          <input name="profileImg" class="form-control" ng-model="user.profileImg"
-                 required
-                 />
+          <div ng-repeat="image in authors" class="image" ng-class="{'active' : user.image == image}">
+            <img ng-src="image" ng-click="user.image = image;">
+          </div>
+
           <p class="help-block" ng-show="form.email.$error.mongoose">
             {{ errors.profileImg }}
           </p>
+
         </div>
         
         <div>

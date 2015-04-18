@@ -5,6 +5,12 @@ angular.module('nytBooksApp')
     $scope.user = {};
     $scope.errors = {};
 
+    $scope.authors = [
+    "",
+    "",
+    "",
+    ]
+
     $scope.register = function(form) {
       $scope.submitted = true;
 
